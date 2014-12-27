@@ -21,7 +21,7 @@ var Generator = module.exports = function Generator() {
 
   this.env.options.srcPath = this.options.srcPath = 'src';
 
-  var sourceRoot = '/templates/javascript';
+  var sourceRoot = '/templates';
   this.scriptSuffix = '.js';
 
   this.sourceRoot(path.join(__dirname, sourceRoot));

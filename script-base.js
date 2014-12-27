@@ -58,5 +58,5 @@ Generator.prototype.generateSourceAndTest = function (appTemplate, testTemplate,
   //}
 
   this.appTemplate(appTemplate, path.join(targetDirectory, this.name));
-  this.testTemplate(testTemplate, path.join(targetDirectory, 'spec', this.name));
+  this.testTemplate(testTemplate, path.join(targetDirectory, 'test', this.name));
 };

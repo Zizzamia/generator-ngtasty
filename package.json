@@ -1,0 +1,18 @@
+{
+  "name": "generator-ngtasty",
+  "version": "0.1.0",
+  "description": "ngTasty component generator",
+  "keywords": [
+    "yeoman-generator",
+    "scaffold",
+    "angular",
+    "ngtasty"
+  ],
+  "main": "app/index.js",
+  "dependencies": {
+    "yeoman-generator": "^0.17.3",
+    "chalk": "^0.5.1",
+    "wiredep": "^2.2.2",
+    "yosay": "^1.0.1"
+  }
+}

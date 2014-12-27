@@ -5,7 +5,7 @@
  * # <%= cameledName %>
  * Factory in ngTasty.
  */
-angular.module('ngTasty.service.<%= cameledName %>')
+angular.module('ngTasty.service.<%= cameledName %>', [])
 .factory('<%= cameledName %>', function () {
   // Service logic
   // ...

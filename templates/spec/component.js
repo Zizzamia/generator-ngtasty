@@ -3,7 +3,7 @@
 describe('Directive: <%= cameledName %>', function () {
 
   // load the directive's module
-  beforeEach(module('ngTasty.component.<%= cameledName %>'));
+  beforeEach(module('<%= scriptAppName %>.component.<%= cameledName %>'));
 
   var element,
     scope;

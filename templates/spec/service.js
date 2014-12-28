@@ -3,7 +3,7 @@
 describe('Service: <%= cameledName %>', function () {
 
   // load the service's module
-  beforeEach(module('ngTasty.service.<%= cameledName %>'));
+  beforeEach(module('<%= scriptAppName %>.service.<%= cameledName %>'));
 
   // instantiate service
   var <%= cameledName %>;

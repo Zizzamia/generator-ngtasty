@@ -52,11 +52,6 @@ Generator.prototype.htmlTemplate = function (src, dest) {
 
 
 Generator.prototype.generateSourceAndTest = function (appTemplate, testTemplate, targetDirectory) {
-  // Services use classified names
-  //if (this.generatorName.toLowerCase() === 'service') {
-  //  this.cameledName = this.classedName;
-  //}
-
   this.appTemplate(appTemplate, path.join(targetDirectory, this.name));
   this.testTemplate(testTemplate, path.join(targetDirectory, 'test', this.name));
 };

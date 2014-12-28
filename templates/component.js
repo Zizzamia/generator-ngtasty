@@ -1,10 +1,10 @@
 /**
  * @ngdoc directive
- * @name ngTasty.component.<%= cameledName %>
+ * @name <%= scriptAppName %>.component.<%= cameledName %>
  * @description
  * # <%= cameledName %>
  */
-angular.module('ngTasty.component.<%= cameledName %>')
+angular.module('<%= scriptAppName %>.component.<%= cameledName %>', [])
 .directive('<%= cameledName %>', function () {
   return {
     template: '<div></div>',

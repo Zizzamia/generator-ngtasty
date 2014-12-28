@@ -1,12 +1,12 @@
 /**
  * @ngdoc filter
- * @name ngTasty.filter.<%= cameledName %>
+ * @name <%= scriptAppName %>.filter.<%= cameledName %>
  * @function
  * @description
  * # <%= cameledName %>
- * Filter in ngTasty.
+ * Filter in <%= scriptAppName %>.
  */
-angular.module('ngTasty.filter.<%= cameledName %>')
+angular.module('<%= scriptAppName %>.filter.<%= cameledName %>', [])
 .filter('<%= cameledName %>', function () {
   return function (input) {
     return '<%= cameledName %> filter: ' + input;

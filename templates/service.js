@@ -1,11 +1,11 @@
 /**
  * @ngdoc service
- * @name ngTasty.service.<%= cameledName %>
+ * @name <%= scriptAppName %>.service.<%= cameledName %>
  * @description
  * # <%= cameledName %>
- * Factory in ngTasty.
+ * Factory in <%= scriptAppName %>.
  */
-angular.module('ngTasty.service.<%= cameledName %>', [])
+angular.module('<%= scriptAppName %>.service.<%= cameledName %>', [])
 .factory('<%= cameledName %>', function () {
   // Service logic
   // ...

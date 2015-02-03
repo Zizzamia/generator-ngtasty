@@ -1,0 +1,8 @@
+Description:
+  Creates a default Angular library
+
+Example:
+  yo ngtasty thing
+
+  This will create:
+    src/component/thing.js

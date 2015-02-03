@@ -38,7 +38,6 @@ Generator.prototype.htmlTemplate = function (src, dest) {
   ]);
 };
 
-
 Generator.prototype.generateSourceAndTest = function (appTemplate, testTemplate, targetDirectory) {
   // Services use classified names
   //if (this.generatorName.toLowerCase() === 'service') {

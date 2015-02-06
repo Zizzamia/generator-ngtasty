@@ -1,6 +1,5 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
-
 <% var srcModules = "<" + "%= srcModules %" + ">"; %>
 <% var tplModules = "<" + "%= tplModules %" + ">"; %>
 var _ = require('underscore');

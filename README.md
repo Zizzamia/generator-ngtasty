@@ -6,21 +6,100 @@
 - Package management: [Bower](http://bower.io/) 
 - The streaming build system: [Gulp](http://gulpjs.com/) 
 
-## Quick start
+## Usage
 Installing Yeoman
 ```
 npm install -g yo
 ```
 
-Installing generator-ngtasty
+Install `generator-ngtasty`:
 ```
-npm install generator-ngtasty
+npm install -g generator-ngtasty
 ```
 
-Scaffolding out your ngTasty component’s pieces
+Make a new directory, and `cd` into it:
 ```
-yo ngtasty nameApp
+mkdir my-new-collection && cd $_
+```
+
+Run `yo ngtasty` passing a collection name:
+```
+yo ngtasty [collection-name]
+```
+
+## Generators
+
+Available generators:
+
+* [ngtasty:component](#component)
+* [ngtasty:filter](#filter)
+* [ngtasty:service](#service)
+
+
+### component
+Generates a component
+
+Example:
+```bash
 yo ngtasty:component myComponent
+```
+
+Produces `src/component/my-component.js`:
+```javascript
+angular.module('collectionName.component.myComponent', [])
+.directive('myComponent', function () {
+  // ...
+});
+```
+and `src/component/test/my-component.spec.js`
+```javascript
+describe('Directive: myComponent', function () {
+  // ...
+});
+```
+
+
+### filter
+Generates a filter
+
+Example:
+```bash
 yo ngtasty:filter myFilter
+```
+
+Produces `src/filter/my-filter.js`:
+```javascript
+angular.module('collectionName.filter.myFilter', [])
+.filter('myFilter', function () {
+  // ...
+});
+```
+and `src/filter/test/my-filter.spec.js`
+```javascript
+describe('Filter: myFilter', function () {
+  // ...
+});
+```
+
+
+### service
+Generates a service
+
+Example:
+```bash
 yo ngtasty:service myService
+```
+
+Produces `src/filter/my-service.js`:
+```javascript
+angular.module('collectionName.service.myService', [])
+.factory('myService', function () {
+  // ...
+});
+```
+and `src/filter/test/my-service.spec.js`
+```javascript
+describe('Service: myService', function () {
+  // ...
+});
 ```

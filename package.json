@@ -1,6 +1,6 @@
 {
   "name": "generator-ngtasty",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ngTasty component generator",
   "keywords": [
     "yeoman-generator",
@@ -26,9 +26,9 @@
     "url": "https://github.com/Zizzamia/generator-ngtasty/issues"
   },
   "homepage": "https://github.com/Zizzamia/generator-ngtasty",
-  "_id": "generator-ngtasty@0.1.5",
+  "_id": "generator-ngtasty@0.2.0",
   "scripts": {},
-  "_shasum": "c7ed8cee79722faa747560ce62d062f5f9b528fe",
+  "_shasum": "571dcd5d7b9a6f808dfcf2519638857ed368dc47",
   "_from": "generator-ngtasty@",
   "_npmVersion": "1.4.21",
   "_npmUser": {

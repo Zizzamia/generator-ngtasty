@@ -1,8 +1,6 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
 <% var srcModules = "<" + "%= srcModules %" + ">", tplModules = "<" + "%= tplModules %" + ">"; %>
-var _ = require('underscore');
-var md5 = require('blueimp-md5').md5;
 var camelCase = require('camel-case');
 var gulp = require('gulp'); 
 var clean = require('gulp-clean');
@@ -120,7 +118,7 @@ gulp.task('full-test', function () {
     'components/angular/angular.min.js',
     'components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
-    'dist/<%= _.slugify(_.humanize(appname)) %.js',
+    'dist/<%= _.slugify(_.humanize(appname)) %>.js',
     'template/**/*.html.js'
   ])
     .pipe(karma({
@@ -135,7 +133,7 @@ gulp.task('full-test', function () {
     'components/angular/angular.min.js',
     'components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
-    'dist/<%= _.slugify(_.humanize(appname)) %.min.js',
+    'dist/<%= _.slugify(_.humanize(appname)) %>.min.js',
     'template/**/*.html.js'
   ])
     .pipe(karma({
@@ -150,7 +148,7 @@ gulp.task('full-test', function () {
     'components/angular/angular.min.js',
     'components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
-    'dist/<%= _.slugify(_.humanize(appname)) %-tpls.js',
+    'dist/<%= _.slugify(_.humanize(appname)) %>-tpls.js',
     'template/**/*.html.js'
   ])
     .pipe(karma({
@@ -165,7 +163,7 @@ gulp.task('full-test', function () {
     'components/angular/angular.min.js',
     'components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
-    'dist/<%= _.slugify(_.humanize(appname)) %-tpls.min.js',
+    'dist/<%= _.slugify(_.humanize(appname)) %>-tpls.min.js',
     'template/**/*.html.js'
   ])
     .pipe(karma({
@@ -173,5 +171,163 @@ gulp.task('full-test', function () {
       action: 'run',
       reporters: ['dots'],
       browsers: ['Firefox']
+    }));
+});
+
+gulp.task('get-modules-name', function () {
+  var setModules = function (folder, files) {
+    files = files.filter(function (file) {
+      return file.split('.').pop() == 'js';
+    });
+    files.forEach(function (file) {
+      file = file.split('.')[0];
+      var module = '<%= scriptAppName %>.' + camelCase(folder) + '.' + camelCase(file);
+      srcModules.push(enquote(module));
+      if (folder === 'component') {
+        setTplsModules(file);
+      }
+    })
+  };
+  var setTplsModules = function (component) {
+    fs.readdir('template/' + component, function (err, files) {
+      if (!files) {
+        return;
+      }
+      files = files.filter(function (file) { 
+        return path.extname(file) === '.html';
+      });
+      files.forEach(function (file) {
+        var module = '<%= scriptAppName %>.tpls.' + camelCase(component);
+        module += '.' + camelCase(file.split('.')[0]);
+        tplModules.push(enquote(module));
+      });
+    });
+  };
+  fs.readdir('src/component', function (err, files) {
+    setModules('component', files)
+  });
+  fs.readdir('src/filter', function (err, files) {
+    setModules('filter', files)
+  });
+  fs.readdir('src/service', function (err, files) {
+    setModules('service', files)
+  });
+});
+
+gulp.task('build-dist', function () {
+  var filename = '<%= _.slugify(_.humanize(appname)) %>';
+  var dist = 'dist';
+  var modules = [];
+
+  tplModules = tplModules.filter(function (tpls) { 
+    return tpls.length > 0;
+  });
+
+  var metaHeader = banner + meta.modules + '\n';
+
+  var dict = {
+    'srcModules': srcModules,
+    'tplModules': tplModules
+  };
+
+  gulp.src('src/*/*.js')
+    .pipe(concat(filename + '.js'))
+    .pipe(header(metaHeader, dict))
+    .pipe(ngAnnotate())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(dist))
+    .pipe(uglify({mangle: false}))
+    .pipe(header(banner, dict))
+    .pipe(rename({extname: '.min.js'}))
+    .pipe(gulp.dest(dist));
+
+  var metaHeader = banner + 
+                   meta.all + '\n' +
+                   meta.tplmodules + '\n';
+
+  gulp.src(['src/*/*.js', 'template/*/*.html.js'])
+    .pipe(concat(filename + '-tpls.js'))
+    .pipe(header(metaHeader, dict))
+    .pipe(ngAnnotate())
+    .pipe(gulp.dest(dist))
+    .pipe(uglify({mangle: false}))
+    .pipe(header(banner, dict))
+    .pipe(rename({extname: '.min.js'}))
+    .pipe(gulp.dest(dist));
+
+  gulp.src('src/*/*.js')
+    .pipe(gulp.dest(dist + '/src'))
+
+  gulp.src('dist/**/*')
+    .pipe(zip(pkg.version + '.zip'))
+    .pipe(gulp.dest('releases'));
+});
+
+gulp.task('build', function () {
+  runSequence('clean',
+              'html2js',
+              'move-template',
+              'get-modules-name',
+              'build-dist');
+});
+
+gulp.task('create-module-file', function () {
+  var modules = process.argv[4];
+  if (modules === 'all') {
+
+  } else {
+
+  }
+  modules = process.argv[4].split(':');
+  var text = 'angular.module("<%= scriptAppName %>", ';
+  text += JSON.stringify(modules) + ")";
+  var str = banner + text;
+
+  return file('ng-tasty-tpls.js', str, { src: true })
+    .pipe(gulp.dest('dist/module'));
+});
+
+gulp.task('create-module', function () {
+  return gulp.src(['src/**/*.js', 
+    'template/**/*.html.js',
+    'dist/module/ng-tasty-tpls.js'])
+    .pipe(ngcompile('<%= scriptAppName %>'))
+    .pipe(concat('ng-tasty-tpls.js'))
+    .pipe(ngAnnotate())
+    .pipe(gulp.dest('dist/module'))
+    .pipe(uglify({mangle: false}))
+    .pipe(rename({extname: '.min.js'}))
+    .pipe(gulp.dest('dist/module'));
+});
+
+gulp.task('create-module-release', function () {
+  return gulp.src('dist/module/*')
+    .pipe(zip('<%= _.slugify(_.humanize(appname)) %>.zip'))
+    .pipe(gulp.dest('dist/releases'));
+});
+
+gulp.task('build-module', function () {
+  runSequence('clean-module',
+              'html2js',
+              'create-module-file',
+              'create-module',
+              'create-module-release');
+});
+
+gulp.task('watch', function () {
+
+  gulp.watch('template/**/*.html', ['html2js']);
+
+  gulp.watch('template/**/*.html.js', ['build']);
+
+  gulp.watch('src/**/*.js', function (event) {
+    runSequence('jshint', 'build');
+  });
+
+  gulp.src(testFiles)
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'watch',
+      browsers: ['Chrome']
     }));
 });

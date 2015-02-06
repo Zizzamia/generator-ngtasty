@@ -1,6 +1,6 @@
 {
   "name": "generator-ngtasty",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "ngTasty component generator",
   "keywords": [
     "yeoman-generator",
@@ -26,11 +26,11 @@
     "url": "https://github.com/Zizzamia/generator-ngtasty/issues"
   },
   "homepage": "https://github.com/Zizzamia/generator-ngtasty",
-  "_id": "generator-ngtasty@0.2.0",
+  "_id": "generator-ngtasty@0.2.3",
   "scripts": {},
-  "_shasum": "571dcd5d7b9a6f808dfcf2519638857ed368dc47",
+  "_shasum": "4345f1770c402bcac9c054d387fea4f7c18eef25",
   "_from": "generator-ngtasty@",
-  "_npmVersion": "1.4.21",
+  "_npmVersion": "1.4.28",
   "_npmUser": {
     "name": "zizzamia",
     "email": "leonardo.zizzamia@gmail.com"
@@ -42,10 +42,9 @@
     }
   ],
   "dist": {
-    "shasum": "c7ed8cee79722faa747560ce62d062f5f9b528fe",
-    "tarball": "http://registry.npmjs.org/generator-ngtasty/-/generator-ngtasty-0.1.5.tgz"
+    "shasum": "4345f1770c402bcac9c054d387fea4f7c18eef25",
+    "tarball": "http://registry.npmjs.org/generator-ngtasty/-/generator-ngtasty-0.2.3.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/generator-ngtasty/-/generator-ngtasty-0.1.5.tgz",
-  "readme": "ERROR: No README data found!"
+  "_resolved": "https://registry.npmjs.org/generator-ngtasty/-/generator-ngtasty-0.2.3.tgz"
 }

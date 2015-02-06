@@ -1,7 +1,6 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
-<% var srcModules = "<" + "%= srcModules %" + ">"; %>
-<% var tplModules = "<" + "%= tplModules %" + ">"; %>
+<% var srcModules = "<" + "%= srcModules %" + ">", tplModules = "<" + "%= tplModules %" + ">"; %>
 var _ = require('underscore');
 var md5 = require('blueimp-md5').md5;
 var camelCase = require('camel-case');

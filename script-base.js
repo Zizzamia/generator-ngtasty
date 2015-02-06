@@ -52,6 +52,7 @@ Generator.prototype.htmlTemplate = function (src, dest) {
 
 
 Generator.prototype.generateSourceAndTest = function (appTemplate, testTemplate, targetDirectory) {
-  this.appTemplate(appTemplate, path.join(targetDirectory, this.name));
-  this.testTemplate(testTemplate, path.join(targetDirectory, 'test', this.name));
+  var name = this._.slugify(this._.humanize(this.name))
+  this.appTemplate(appTemplate, path.join(targetDirectory, name));
+  this.testTemplate(testTemplate, path.join(targetDirectory, 'test', name));
 };

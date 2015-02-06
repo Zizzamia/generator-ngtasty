@@ -36,9 +36,6 @@
     "protractor": "^0.20.1",
     "run-sequence": "^0.3.6",
     "streamqueue": "^0.1.1",
-    "twit": "^1.1.18",
-    "underscore": "1.6.0",
-    "ws": "^0.6.5",
     "yeoman-generator": "^0.18.5"
   },
   "scripts": {

@@ -204,13 +204,19 @@ gulp.task('get-modules-name', function () {
     });
   };
   fs.readdir('src/component', function (err, files) {
-    setModules('component', files)
+    if (files){
+      setModules('component', files);
+    }
   });
   fs.readdir('src/filter', function (err, files) {
-    setModules('filter', files)
+    if (files){
+      setModules('filter', files);
+    }
   });
   fs.readdir('src/service', function (err, files) {
-    setModules('service', files)
+    if (files){
+      setModules('service', files);
+    }
   });
 });
 

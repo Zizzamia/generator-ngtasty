@@ -4,7 +4,8 @@
   "description": "",
   "dependencies": {
     "angular": "^<%= ngVer %>",
-    "angular-mocks": "^<%= ngVer %>"
+    "angular-mocks": "^<%= ngVer %>",
+    "jquery": "~2.1.3"
   },
   "license": "MIT"
 }

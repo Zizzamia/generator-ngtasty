@@ -103,3 +103,11 @@ describe('Service: myService', function () {
   // ...
 });
 ```
+
+
+## Creator
+
+Designed and built by Leonardo Zizzamia, like grandma used to make.
+
+- <http://twitter.com/zizzamia>
+- <http://github.com/zizzamia>

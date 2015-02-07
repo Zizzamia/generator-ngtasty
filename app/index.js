@@ -33,12 +33,13 @@ Generator.prototype.welcome = function welcome() {
 };
 
 Generator.prototype.packageFiles = function packageFiles() {
-  this.template('root/_bower.json', 'bower.json');
   this.template('root/_bowerrc', '.bowerrc');
   this.template('root/_jshintrc', '.jshintrc');
-  this.template('root/gitignore', '.gitignore');
-  this.template('root/_package.json', 'package.json');
-  this.template('root/_gulpfile.js', 'gulpfile.js');
+  this.template('root/_gitignore', '.gitignore');
+  this.template('root/bower.json', 'bower.json');
+  this.template('root/package.json', 'package.json');
+  this.template('root/gulpfile.js', 'gulpfile.js');
+  this.template('root/karma.conf.js', 'karma.conf.js');
   this.template('root/LICENSE', 'LICENSE');
   this.template('root/README.md', 'README.md');
 };

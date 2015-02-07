@@ -20,7 +20,7 @@ npm install -g generator-ngtasty
 
 Make a new directory, and `cd` into it:
 ```
-mkdir my-new-collection && cd $_
+mkdir new-collection && cd $_
 ```
 
 Run `yo ngtasty` passing a collection name:

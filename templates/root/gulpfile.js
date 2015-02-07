@@ -29,7 +29,7 @@ var testFiles = [
   'bower_components/angular/angular.min.js',
   'bower_components/angular-mocks/angular-mocks.js',
   'src/**/*.js',
-  'template/table/*.html.js'
+  'template/**/*.html.js'
 ];
 var meta = {
     modules: 'angular.module("<%= scriptAppName %>", [<%= srcModules %>]);',

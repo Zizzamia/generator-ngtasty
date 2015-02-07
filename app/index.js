@@ -34,8 +34,8 @@ Generator.prototype.welcome = function welcome() {
 
 Generator.prototype.packageFiles = function packageFiles() {
   this.template('root/_bowerrc', '.bowerrc');
-  this.template('root/_jshintrc', '.jshintrc');
   this.template('root/_gitignore', '.gitignore');
+  this.template('root/_jshintrc', '.jshintrc');
   this.template('root/bower.json', 'bower.json');
   this.template('root/package.json', 'package.json');
   this.template('root/gulpfile.js', 'gulpfile.js');

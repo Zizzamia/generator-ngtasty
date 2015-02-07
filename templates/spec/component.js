@@ -4,6 +4,7 @@ describe('Directive: <%= cameledName %>', function () {
 
   // load the directive's module
   beforeEach(module('<%= scriptAppName %>.component.<%= cameledName %>'));
+  beforeEach(module('<%= scriptAppName %>.tpls.component.<%= cameledName %>'));
   
   var element, scope;
   beforeEach(inject(function ($rootScope) {

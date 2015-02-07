@@ -1,6 +1,6 @@
 {
   "name": "generator-ngtasty",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "ngTasty component generator",
   "keywords": [
     "yeoman-generator",

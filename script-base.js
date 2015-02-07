@@ -18,6 +18,7 @@ var Generator = module.exports = function Generator() {
 
   this.cameledName = this._.camelize(this.name);
   this.classedName = this._.classify(this.name);
+  this.slugifyName = this._.slugify(this._.humanize(this.name));
 
   this.env.options.srcPath = this.options.srcPath = 'src';
 
@@ -45,14 +46,18 @@ Generator.prototype.testTemplate = function (src, dest) {
 
 Generator.prototype.htmlTemplate = function (src, dest) {
   yeoman.generators.Base.prototype.template.apply(this, [
-    src,
-    path.join(this.env.options.srcPath, dest.toLowerCase())
+    src + '.html',
+    path.join('template', dest.toLowerCase()) + '.html'
   ]);
 };
 
-
 Generator.prototype.generateSourceAndTest = function (appTemplate, testTemplate, targetDirectory) {
-  var name = this._.slugify(this._.humanize(this.name))
+  var name = this.slugifyName;
   this.appTemplate(appTemplate, path.join(targetDirectory, name));
   this.testTemplate(testTemplate, path.join(targetDirectory, 'test', name));
+};
+
+Generator.prototype.generateTemplateComponent = function () {
+  var name = this.slugifyName;
+  this.htmlTemplate('component', path.join(name, name));
 };

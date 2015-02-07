@@ -14,4 +14,5 @@ Generator.prototype.createDirectiveFiles = function createDirectiveFiles() {
     'spec/component',
     'component'
   );
+  this.generateTemplateComponent();
 };

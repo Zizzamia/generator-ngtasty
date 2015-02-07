@@ -25,9 +25,9 @@ var fs = require('fs');
 var pkg = require('./package.json');
 
 var testFiles = [
-  'components/jquery/dist/jquery.min.js',
-  'components/angular/angular.min.js',
-  'components/angular-mocks/angular-mocks.js',
+  'bower_components/jquery/dist/jquery.min.js',
+  'bower_components/angular/angular.min.js',
+  'bower_components/angular-mocks/angular-mocks.js',
   'src/**/*.js',
   'template/table/*.html.js'
 ];
@@ -114,9 +114,9 @@ gulp.task('travis', function () {
 
 gulp.task('full-test', function () {
   gulp.src([
-    'components/jquery/dist/jquery.min.js',
-    'components/angular/angular.min.js',
-    'components/angular-mocks/angular-mocks.js',
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
     'dist/<%= _.slugify(_.humanize(appname)) %>.js',
     'template/**/*.html.js'
@@ -129,9 +129,9 @@ gulp.task('full-test', function () {
     }));
 
   gulp.src([
-    'components/jquery/dist/jquery.min.js',
-    'components/angular/angular.min.js',
-    'components/angular-mocks/angular-mocks.js',
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
     'dist/<%= _.slugify(_.humanize(appname)) %>.min.js',
     'template/**/*.html.js'
@@ -144,9 +144,9 @@ gulp.task('full-test', function () {
     }));
 
   gulp.src([
-    'components/jquery/dist/jquery.min.js',
-    'components/angular/angular.min.js',
-    'components/angular-mocks/angular-mocks.js',
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
     'dist/<%= _.slugify(_.humanize(appname)) %>-tpls.js',
     'template/**/*.html.js'
@@ -159,9 +159,9 @@ gulp.task('full-test', function () {
     }));
 
   gulp.src([
-    'components/jquery/dist/jquery.min.js',
-    'components/angular/angular.min.js',
-    'components/angular-mocks/angular-mocks.js',
+    'bower_components/jquery/dist/jquery.min.js',
+    'bower_components/angular/angular.min.js',
+    'bower_components/angular-mocks/angular-mocks.js',
     'src/*/test/*.js',
     'dist/<%= _.slugify(_.humanize(appname)) %>-tpls.min.js',
     'template/**/*.html.js'
@@ -334,6 +334,7 @@ gulp.task('watch', function () {
     .pipe(karma({
       configFile: 'karma.conf.js',
       action: 'watch',
-      browsers: ['Chrome']
+      browsers: ['Chrome'],
+      reporters: ['dots']
     }));
 });

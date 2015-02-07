@@ -58,6 +58,10 @@ describe('Directive: myComponent', function () {
   // ...
 });
 ```
+and `template/my-component/my-component.html`
+```html
+<div></div>
+```
 
 
 ### filter

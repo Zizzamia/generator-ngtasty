@@ -35,7 +35,7 @@ Available generators:
 * [ngtasty:component](#component)
 * [ngtasty:filter](#filter)
 * [ngtasty:service](#service)
-
+* [ngtasty:benchpress](#benchpress)
 
 ### component
 Generates a component
@@ -108,6 +108,16 @@ describe('Service: myService', function () {
   // ...
 });
 ```
+
+
+### benchpress
+Generates a benchmark
+
+Example:
+```bash
+yo ngtasty:benchpress dist
+```
+
 
 
 ## Creator

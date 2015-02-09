@@ -10,7 +10,7 @@ describe('Directive: <%= cameledName %>', function () {
   var $scope, element;
   beforeEach(inject(function ($rootScope, $compile) {
     $scope = $rootScope.$new();
-    element = angular.element('<my-component></my-component>');
+    element = angular.element('<<%= slugifyName %>></<%= slugifyName %>>');
     element = $compile(element)($scope);
   }));
 

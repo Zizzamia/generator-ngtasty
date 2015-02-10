@@ -33,4 +33,23 @@ The easiest way to run the unit tests is to use the supplied npm script:
 gulp test
 ```
 
+## Benchpress
+Benchpress allows creation and sampling of macro benchmarks to compare performance of real world web applications.
+```
+npm install -g angular-benchpress
+```
+
+Run ngTasty benchmark
+
+```
+benchpress build
+benchpress run
+```
+
+Open benchmark with Chrome
+```
+benchpress launch_chrome
+http://localhost:3339/benchpress-build/
+```
+
 [npm-site]: https://www.npmjs.org/

@@ -111,13 +111,15 @@ describe('Service: myService', function () {
 
 
 ### benchpress
-Generates a benchmark
-
-Example:
+Generates a benchmark of your dist
 ```bash
 yo ngtasty:benchpress dist
 ```
 
+generate a benchmark of an old version
+```bash
+yo ngtasty:benchpress ng-tasty
+```
 
 
 ## Creator
